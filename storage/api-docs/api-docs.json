@@ -6,18 +6,18 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:8000"
+            "url": "http://localhost:8000"
         }
     ],
     "paths": {
         "/api/search/{search}": {
             "get": {
                 "tags": [
-                    "nombres"
+                    "Busqueda de persona por Nombre"
                 ],
                 "summary": "Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
                 "description": "Obtiene la lista de coincidencias",
-                "operationId": "nombres",
+                "operationId": "search",
                 "parameters": [
                     {
                         "name": "search",

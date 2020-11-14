@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 /**
 * @OA\Info(title="API Usuarios", version="1.0")
 *
-* @OA\Server(url="http://127.0.0.1:8000")
+* @OA\Server(url="http://localhost:8000")
 */
 class SearchController extends Controller
 {
@@ -18,8 +18,8 @@ class SearchController extends Controller
     *	path="/api/search/{search}",
     *	summary="Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
 	*	description="Obtiene la lista de coincidencias",
-	*	operationId="nombres",
-	*	tags={"nombres"},
+	*	operationId="search",
+	*	tags={"Busqueda de persona por Nombre"},
 	*	security={ {"bearer": {} }},
 	*	@OA\Parameter(
 	*    description="nombre de la persona o cantante",
@@ -29,8 +29,8 @@ class SearchController extends Controller
 	*    example="allen",
 	*    @OA\Schema(
 	*       type="string"
-	*    ),
-		),
+	*    )
+	*   ),
     *     @OA\Response(
     *         response=200,
     *         description="Muestra resultados de las paginas."
