@@ -16,7 +16,7 @@ class SearchController extends Controller
 	/**
     * @OA\Get(
     *     path="/api/search/allen",
-    *     summary="Consulta por nombre en las Itunes, tvmaze y crcind.com",
+    *     summary="Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
     *     @OA\Response(
     *         response=200,
     *         description="Muestra resultados de las paginas."

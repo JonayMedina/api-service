@@ -6,13 +6,13 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:8001"
+            "url": "http://127.0.0.1:8000"
         }
     ],
     "paths": {
         "/api/search/allen": {
             "get": {
-                "summary": "Consulta por nombre en las Itunes, tvmaze y crcind.com",
+                "summary": "Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
                 "operationId": "App\\Http\\Controllers\\Api\\SearchController::search",
                 "responses": {
                     "200": {
