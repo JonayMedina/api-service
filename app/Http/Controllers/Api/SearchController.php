@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 /**
-* @OA\Info(title="API Usuarios", version="1.0")
+* @OA\Info(title="API busqueda", version="1.0")
 *
 * @OA\Server(url="http://localhost:8000")
 */
@@ -15,7 +15,7 @@ class SearchController extends Controller
 {
 	/**
     * @OA\Get(
-    *	path="/api/search/{search}",
+    *	path="api/v1/search/{search}",
     *	summary="Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
 	*	description="Obtiene la lista de coincidencias",
 	*	operationId="search",
@@ -33,7 +33,7 @@ class SearchController extends Controller
 	*   ),
     *     @OA\Response(
     *         response=200,
-    *         description="Muestra resultados de las paginas."
+    *         description="Muestra resultados de las paginas en un array [] con tres objetos {} '$itunes{}, $tvmaze{}, $crcind{}."
     *     ),
     *     @OA\Response(
     *         response="default",
@@ -49,20 +49,20 @@ class SearchController extends Controller
     	$crcind_res = $this->crcind($search);
     	array_push($values, ['itunes' => $itunes_response]);
     	array_push($values,['tvmaze' => $tvmaze_res]);
-    	array_push($values,['crcind_res' => $crcind_res]);
+    	array_push($values,['crcind' => $crcind_res]);
 
     	return response($values);
     }
 
     protected function itunes($param)
     {
-    	$itunes = Http::get('https://itunes.apple.com/search?term='.$param)->throw()->json();
+    	$itunes = Http::get('https://itunes.apple.com/search?term='.$param)->json();
     	return $itunes;
     }
 
     protected function tvmaze($param)
     {
-    	$response = Http::get('http://api.tvmaze.com/search/shows?q='.$param)->throw()->json();
+    	$response = Http::get('http://api.tvmaze.com/search/shows?q='.$param)->json();
 
     	return $response;
     }

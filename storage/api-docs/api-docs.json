@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API Usuarios",
+        "title": "API busqueda",
         "version": "1.0"
     },
     "servers": [
@@ -10,7 +10,7 @@
         }
     ],
     "paths": {
-        "/api/search/{search}": {
+        "api/v1/search/{search}": {
             "get": {
                 "tags": [
                     "Busqueda de persona por Nombre"
@@ -32,7 +32,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Muestra resultados de las paginas."
+                        "description": "Muestra resultados de las paginas en un array [] con tres objetos {} '$itunes{}, $tvmaze{}, $crcind{}."
                     },
                     "default": {
                         "description": "Ha ocurrido un error."
