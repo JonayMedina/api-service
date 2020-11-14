@@ -10,10 +10,26 @@
         }
     ],
     "paths": {
-        "/api/search/allen": {
+        "/api/search/{search}": {
             "get": {
+                "tags": [
+                    "nombres"
+                ],
                 "summary": "Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
-                "operationId": "App\\Http\\Controllers\\Api\\SearchController::search",
+                "description": "Obtiene la lista de coincidencias",
+                "operationId": "nombres",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "path",
+                        "description": "nombre de la persona o cantante",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "allen"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Muestra resultados de las paginas."
@@ -21,7 +37,12 @@
                     "default": {
                         "description": "Ha ocurrido un error."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
             }
         }
     },

@@ -15,8 +15,22 @@ class SearchController extends Controller
 {
 	/**
     * @OA\Get(
-    *     path="/api/search/allen",
-    *     summary="Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
+    *	path="/api/search/{search}",
+    *	summary="Donde 'allen' es el nombre a realizar la Consulta en las apis de Itunes, tvmaze y crcind.com",
+	*	description="Obtiene la lista de coincidencias",
+	*	operationId="nombres",
+	*	tags={"nombres"},
+	*	security={ {"bearer": {} }},
+	*	@OA\Parameter(
+	*    description="nombre de la persona o cantante",
+	*    in="path",
+	*    name="search",
+	*    required=true,
+	*    example="allen",
+	*    @OA\Schema(
+	*       type="string"
+	*    ),
+		),
     *     @OA\Response(
     *         response=200,
     *         description="Muestra resultados de las paginas."
